@@ -1,0 +1,323 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".WheelsMainActivity" >
+
+    <RelativeLayout
+        android:id="@+id/commuter_app_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/roundbg"
+        android:gravity="center_vertical|center_horizontal|center"
+        android:orientation="horizontal" >
+
+        <!-- android:layout_below="@+id/button_wheels" -->
+
+        <Button
+            android:id="@+id/button_muni_stops"
+            android:layout_width="75dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/app_muni_logo"
+            android:enabled="true"
+            android:gravity="center_vertical|center_horizontal|center"
+            android:onClick="muniStops"
+            android:padding="0dip"
+            android:textColor="#cccccc"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+
+        <Button
+            android:id="@+id/button_actransit"
+            android:layout_width="75dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/button_muni_stops"
+            android:background="@drawable/logobutton_actransit"
+            android:enabled="true"
+            android:gravity="center_vertical|center_horizontal|center"
+            android:onClick="acTransit"
+            android:padding="0dip"
+            android:text="@string/actransit_button_stops_label"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            android:textStyle="normal" />
+
+        <Button
+            android:id="@+id/button_dumbartonexpress"
+            android:layout_width="75dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/button_actransit"
+            android:background="@drawable/logobutton_actransit"
+            android:enabled="true"
+            android:gravity="center_vertical|center_horizontal|center"
+            android:onClick="dumbartonExpress"
+            android:padding="0dip"
+            android:text="@string/dumbartonexpress_button_stops_label"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            android:textStyle="normal" />
+
+        <Button
+            android:id="@+id/button_bart"
+            android:layout_width="75dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/button_actransit"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/button_muni_stops"
+            android:background="@drawable/app_bart_logo"
+            android:enabled="true"
+            android:gravity="center_vertical|center_horizontal|center"
+            android:onClick="bart"
+            android:padding="0dip"
+            android:textColor="#cccccc"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+
+        <Button
+            android:id="@+id/button_wheels"
+            android:layout_width="75dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/button_bart"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/logobutton_wheels"
+            android:enabled="true"
+            android:gravity="center_vertical|center_horizontal|center"
+            android:onClick="wheels"
+            android:padding="0dip"
+            android:text="@string/wheels_button_label"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            android:textStyle="normal" />
+
+        <Button
+            android:id="@+id/button_samtrans"
+            android:layout_width="75dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/button_bart"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/button_wheels"
+            android:background="@drawable/logobutton"
+            android:enabled="true"
+            android:gravity="center_vertical|center_horizontal|center"
+            android:onClick="samTrans"
+            android:padding="0dip"
+            android:text="@string/samtrans_button_stops_label"
+            android:textSize="12sp"
+            android:textStyle="normal" />
+
+        <Button
+            android:id="@+id/button_westcat"
+            android:layout_width="75dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/button_bart"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/button_samtrans"
+            android:background="@drawable/logobutton_actransit"
+            android:enabled="true"
+            android:gravity="center_vertical|center_horizontal|center"
+            android:onClick="westcat"
+            android:padding="0dip"
+            android:text="@string/westcat_button_stops_label"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            android:textStyle="normal" />
+        <Button
+            android:id="@+id/button_carpool"
+            android:layout_width="75dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/button_westcat"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/logobutton_actransit"
+            android:enabled="true"
+            android:gravity="center_vertical|center_horizontal|center"
+            android:onClick="carpool"
+            android:padding="0dip"
+            android:text="@string/carpool_button_label"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            android:textStyle="normal" />
+        
+<!--         <RelativeLayout
+            android:id="@+id/rider_profile"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/button_westcat"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/roundbg"
+            android:gravity="center_vertical|center_horizontal|center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/label_rider_name"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="2dp"
+                android:gravity="center_vertical|left"
+                android:padding="0dip"
+                android:text="@string/rider_name_label"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/input_rider_name"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="2dp"
+                android:layout_toRightOf="@+id/label_rider_name"
+                android:gravity="center_vertical|left|center"
+                android:inputType="textPersonName"
+                android:paddingLeft="5dip"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/label_rider_gender"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/label_rider_name"
+                android:layout_marginTop="2dp"
+                android:gravity="center_vertical|left"
+                android:padding="0dip"
+                android:text="@string/rider_gender_label"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/input_rider_gender"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/input_rider_name"
+                android:layout_marginTop="2dp"
+                android:layout_toRightOf="@+id/label_rider_gender"
+                android:gravity="center_vertical|left|center"
+                android:inputType="text"
+                android:paddingLeft="5dip"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/label_rider_year"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/label_rider_name"
+                android:layout_marginTop="2dp"
+                android:layout_toRightOf="@+id/input_rider_gender"
+                android:gravity="center_vertical|center_horizontal|center"
+                android:padding="0dip"
+                android:text="@string/rider_year_label"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/input_rider_year"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/input_rider_name"
+                android:layout_marginTop="2dp"
+                android:layout_toRightOf="@+id/label_rider_year"
+                android:gravity="center_vertical|left|center"
+                android:inputType="text"
+                android:paddingLeft="5dip"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/label_rider_home_location"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/label_rider_gender"
+                android:layout_marginTop="2dp"
+                android:gravity="center_vertical|left"
+                android:padding="0dip"
+                android:text="@string/rider_home_location_label"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/input_rider_home_location"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/label_rider_gender"
+                android:layout_marginTop="2dp"
+                android:layout_toRightOf="@+id/label_rider_home_location"
+                android:gravity="center_vertical|left|center"
+                android:inputType="text"
+                android:paddingLeft="5dip"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/label_rider_work_location"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/label_rider_home_location"
+                android:layout_marginTop="2dp"
+                android:gravity="center_vertical|left"
+                android:padding="0dip"
+                android:text="@string/rider_work_location_label"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/input_rider_work_location"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/label_rider_home_location"
+                android:layout_marginTop="2dp"
+                android:layout_toRightOf="@+id/label_rider_work_location"
+                android:gravity="center_vertical|left|center"
+                android:inputType="text"
+                android:paddingLeft="5dip"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            
+                <TextView
+                android:id="@+id/label_rider_gender"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:layout_below="@+id/label_rider_name"
+                android:layout_marginTop="2dp"
+                android:gravity="center_vertical|center_horizontal|center"
+                android:padding="0dip"
+                android:text="@string/rider_gender_label"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+           
+        </RelativeLayout> -->
+    </RelativeLayout>
+
+</RelativeLayout>

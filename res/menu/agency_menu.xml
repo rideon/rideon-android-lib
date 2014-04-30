@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto" >
+
+    <item
+        android:id="@+id/menu_actransit"
+        android:title="@string/actransit_button_stops_label"/>
+    <item
+        android:id="@+id/menu_bart"
+        android:title="@string/bart_button_label"/>
+    <item
+        android:id="@+id/menu_caltrain"
+        android:title="@string/caltrain_direction_button_label"/>
+    <item
+        android:id="@+id/menu_dumbartonexpress"
+        android:title="@string/dumbartonexpress_button_stops_label"/>
+    <item
+        android:id="@+id/menu_samtrans"
+        android:title="@string/samtrans_button_stops_label"/>
+    <item
+        android:id="@+id/menu_muni"
+        android:title="@string/muni_button_stops_label"/>
+    <item
+        android:id="@+id/menu_vta"
+        android:title="@string/vta_button_stops_label"/>
+    <item
+        android:id="@+id/menu_westcat"
+        android:title="@string/westcat_button_stops_label"/>
+    <item
+        android:id="@+id/menu_wheels"
+        android:title="@string/wheels_button_label"/>
+    <item
+        android:id="@+id/menu_vta_schedule"
+        android:title="@string/vta_rails_label"/>
+    <item
+        android:id="@+id/menu_map"
+        android:icon="@drawable/android_map_pin"
+        android:title="@string/map_label"
+        yourapp:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_favorite"
+        android:icon="@drawable/btn_star_big_off"
+        android:title="@string/favorite_label"
+        yourapp:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_refresh"
+        android:icon="@drawable/ic_menu_refresh"
+        android:title="@string/refresh_label"
+        yourapp:showAsAction="always"/>
+    <!--
+         <item
+        android:id="@+id/menu_action"
+        android:icon="@drawable/abc_ic_menu_moreoverflow_normal_holo_light"
+        yourapp:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/menu_action_favorite"
+                android:title="@string/favorite_label"
+                yourapp:showAsAction="always"/>
+        </menu>
+    </item>
+    -->
+
+</menu>

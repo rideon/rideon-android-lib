@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ride On-Lib</string>
+    <string name="action_settings">Settings</string>
+    <string name="bus_number_1c_label">#1C</string>
+    <string name="bus_number_10w_label">#10W</string>
+    <string name="bus_number_10e_label">#10E</string>
+    <string name="bus_number_8a_label">#8A</string>
+    <string name="bus_number_8b_label">#8B</string>
+    <string name="wheels_button_label">Wheels</string>
+    <string name="bart_button_label">BART</string>
+    <string name="bart_caltrain_route_label">Caltrain (By Routes)</string>
+    <string name="bart_caltrain_stop_label">Caltrain</string>
+    <string name="muni_button_stops_label">SF-MUNI</string>
+    <string name="actransit_button_stops_label">AC Transit</string>
+    <string name="dumbartonexpress_button_stops_label">Dumbarton\nExpress</string>
+    <string name="metrolinks_button_label">Metrolinks</string>
+    <string name="vta_rails_label">VTA-Schedule</string>
+    <string name="samtrans_button_stops_label">SamTrans</string>
+    <string name="westcat_button_stops_label">WESTCAT</string>
+    <string name="vta_button_stops_label">VTA</string>
+    <string name="muni_button_routes_label">SF-MUNI - By Routes</string>
+    <string name="bart_map_button_label">Map</string>
+    <string name="bart_stops_button_label">Stations</string>
+    <string name="agency">Transit Company</string>
+    <string name="search">Search</string>
+    <string name="refresh_label">Refresh</string>
+    <string name="map_label">Map</string>
+    <string name="favorite_label">Favorites-Coming soon</string>
+    <string name="rider_name_label">Name</string>
+    <string name="rider_gender_label">Gender</string>
+    <string name="rider_age_group_label">Age Group</string>
+    <string name="rider_home_location_label">From zip</string>
+    <string name="rider_work_location_label">To zip</string>
+    <string name="carpool_button_label">Car Pool</string>
+    <string name="caltrain_direction_button_label">Caltrain calendar</string>
+    <string name="register">Register</string>
+
+    <string-array name="age_groups">
+        <item>18-30</item>
+        <item>30-45</item>
+        <item>45-60</item>
+        <item>&gt;60</item>
+    </string-array>
+    <string-array name="gender">
+        <item>M</item>
+        <item>F</item>
+    </string-array>
+    <string-array name="bus_stops_1">
+        <item>BART DUBLIN ARRIVAL NORTHBOUND * </item>
+        <item>BART DUBLIN DEPART EASTBOUND * </item>
+        <item>BRODER BLVD &amp; SANTA RITA JAIL * </item>
+        <item>DUBLIN BLVD &amp; J.MONEGO-TASSAJARA * </item>
+        <item>DUBLIN BLVD &amp; MYRTLE DR</item>
+        <item>EB DUBLIN BLVD &amp; HIBERNIA DR EB</item>
+        <item>GLEASON DR &amp; ARNOLD RD</item>
+        <item>GLEASON DR &amp; HACIENDA DR</item>
+        <item>HACIENDA DR &amp; CENTRAL PKWY</item>
+        <item>HACIENDA DR &amp; GLEASON DR</item>
+        <item>HACIENDA DR &amp; HAVEN PLACE</item>
+        <item>HACIENDA DR &amp; SUMMERGLEN</item>
+        <item>MADIGAN AV &amp; BRODER BV</item>
+        <item>OWENS &amp; HACIENDA</item>
+        <item>OWENS &amp; ROSEWOOD</item>
+        <item>ROSE PAVILION INBOUND * </item>
+        <item>ROSEWOOD DR &amp; OLD SANTA RITA</item>
+        <item>ROSEWOOD DR &amp; WAL MART DR</item>
+    </string-array>
+    <string-array name="bus_stop_10e">
+        <item pos="5526">5526   SPRINGDALE AV</item>
+        <item>BART DUBLIN SIDE ARRIVAL * </item>
+        <item>BART PLEASANTON ARRIVAL SOUTHBOUND * </item>
+        <item>BART PLEASANTON DEPART SOUTHBOUND * </item>
+        <item>DUBLIN BLVD &amp; CIVIC PLAZA</item>
+        <item>DUBLIN BLVD &amp; DUBLIN CT EB</item>
+        <item>DUBLIN BLVD &amp; GOLDEN GATE EB * </item>
+        <item>DUBLIN BLVD &amp; REGIONAL ST</item>
+        <item>DUBLIN BLVD &amp; SCARLETT CT EB</item>
+        <item>DUBLIN BLVD &amp; VILLAGE PKWY EB</item>
+        <item>East Ave &amp;  Madison EB</item>
+        <item>EAST AVE &amp; 7TH St</item>
+        <item>EAST AVE &amp; ALMOND</item>
+        <item>EAST AVE &amp; CHARLOTTE EB</item>
+        <item>EAST AVE &amp; DOLORES EB</item>
+        <item>EAST AVE &amp; EAST MID SCH * </item>
+        <item>EAST AVE &amp; MINES</item>
+        <item>EAST AVE &amp; Pre-BUENA VISTA</item>
+        <item>EAST AVE &amp; S VASCO RD * </item>
+        <item>EAST AVE &amp; XAVIER</item>
+        <item>FIRST &amp; KOTTINGER NB</item>
+        <item>FOOTHILL &amp; CANYON WY</item>
+        <item>LAS POSITAS &amp; SANTA RITA</item>
+        <item>MAPLE &amp; 2ND EB</item>
+        <item>NEAL &amp; FIRST EB * </item>
+        <item>OWENS DR &amp; HACIENDA DR</item>
+        <item>OWENS DR &amp; LAS POSITAS</item>
+        <item>OWENS DR &amp; ROSEWOOD</item>
+        <item>PETERS &amp; DIVISION</item>
+        <item>Railroad &amp; Bankhead Theater</item>
+        <item>Railroad &amp; L Street EB</item>
+        <item>RAILROAD &amp; N St</item>
+        <item>RAILROAD &amp; P St</item>
+        <item>SANTA RITA &amp; AMADOR HIGH SB</item>
+        <item>SANTA RITA &amp; DEL VALLE</item>
+        <item>SANTA RITA &amp; MOHR</item>
+        <item>SANTA RITA &amp; NEVIS</item>
+        <item>SANTA RITA &amp; STONERIDGE</item>
+        <item>SANTA RITA &amp; VALLEY * </item>
+        <item>SANTA RITA RD &amp; VALLEY</item>
+        <item>STANLEY &amp; BERNAL</item>
+        <item>STANLEY &amp; CALIFORNIA</item>
+        <item>STANLEY &amp; EL CAMINITO</item>
+        <item>STANLEY &amp; MURDELL EB</item>
+        <item>STANLEY &amp; MURRIETA</item>
+        <item>STANLEY &amp; REC AREA ENTR</item>
+        <item>STANLEY &amp; VALLEY MEM EB * </item>
+        <item>Stoneridge &amp; Foothill Rd EB</item>
+        <item>STONERIDGE MALL * </item>
+        <item>TRANSIT CENTER * </item>
+        <item>TRANSIT CENTER DEPART EASTBOUND * </item>
+    </string-array>
+    <string-array name="bus_stop_10w">
+        <item>1ST &amp; RAY</item>
+        <item>7799 STONERIDGE DR</item>
+        <item>BART DUBLIN ARRIVAL NORTHBOUND * </item>
+        <item>DEPART BART  DUBLIN WEST EXIT * </item>
+        <item>DUBLIN BLVD &amp; CLARK WB</item>
+        <item>DUBLIN BLVD &amp; DUBLIN CT WB</item>
+        <item>DUBLIN BLVD &amp; GOLDEN GATE WB * </item>
+        <item>DUBLIN BLVD &amp; SIERRA CT</item>
+        <item>DUBLIN BLVD &amp; VILLAGE PKWY WB</item>
+        <item>EAST AVE &amp; BUENA VISTA</item>
+        <item>EAST AVE &amp; CHARLOTTE WB</item>
+        <item>EAST AVE &amp; DOLORES WB</item>
+        <item>EAST AVE &amp; ESTATES</item>
+        <item>EAST AVE &amp; HILLCREST * </item>
+        <item>EAST AVE &amp; MINES</item>
+        <item>EAST AVE &amp; ROBERT LIVERMORE PARK</item>
+        <item>EAST AVE &amp; S VASCO RD * </item>
+        <item>EAST AVE &amp; SUSAN</item>
+        <item>FOOTHILL RD &amp; DUBLIN CANYON</item>
+        <item>LAS POSITAS &amp; SANTA RITA</item>
+        <item>LIVERMORE HIGH SCHOOL</item>
+        <item>MAIN &amp; VERVAIS</item>
+        <item>MAPLE &amp; 4TH St</item>
+        <item>NEAL &amp; FIRST NB * </item>
+        <item>OWENS &amp; ANDREWS</item>
+        <item>OWENS &amp; HACIENDA</item>
+        <item>OWENS &amp; ROSEWOOD</item>
+        <item>PETERS &amp; ST MARYS</item>
+        <item>RAILROAD &amp; P St WB</item>
+        <item>RAILROAD &amp; STATION SQUARE</item>
+        <item>Railroad Ave &amp; Maple Signature Stop</item>
+        <item>SANTA RITA &amp; AMADOR HIGH NB</item>
+        <item>SANTA RITA &amp; BLACK</item>
+        <item>SANTA RITA &amp; FRANCISCO</item>
+        <item>SANTA RITA &amp; MOHR</item>
+        <item>SANTA RITA &amp; STONERIDGE</item>
+        <item>SANTA RITA &amp; SUTTER GATE</item>
+        <item>SANTA RITA &amp; VALLEY * </item>
+        <item>SPRINDALE &amp; STONERIDGE</item>
+        <item>STANLEY &amp; CALIFORNIA</item>
+        <item>STANLEY &amp; SHADOW CLIFFS</item>
+        <item>STANLEY &amp; STANLEY</item>
+        <item>STANLEY &amp; VALLEY MED WB * </item>
+        <item>STANLEY BLVD &amp; MURDELL LN</item>
+        <item>STANLEY BLVD &amp; WALL ST</item>
+        <item>STONERIDGE MALL * </item>
+        <item>TC DEPART WESTBOUND * </item>
+        <item>TRANSIT CENTER * </item>
+    </string-array>
+    <string-array name="bus_stop_8a">
+        <item>4393   HOPYARD RD</item>
+        <item>4861   HOPYARD RD</item>
+        <item>5057   HOPYARD RD</item>
+        <item>5220 CASE AVE * </item>
+        <item>BART PLEASANTON ARRIVAL NORTHBOUND * </item>
+        <item>BART PLEASANTON DEPART SOUTHBOUND * </item>
+        <item>BERNAL &amp; PALOMINO * </item>
+        <item>CASE &amp; BERNAL</item>
+        <item>FIRST &amp; KOTTINGER NB</item>
+        <item>FIRST &amp; NEAL WB</item>
+        <item>HOPYARD &amp; VALLEY TRAILS</item>
+        <item>HOPYARD RD &amp; LAS POSITAS BLVD * </item>
+        <item>KOLL CENTER PARKWAY EB</item>
+        <item>KOLL CENTER PARKWAY NB</item>
+        <item>KOLL CENTER PARKWAY WB * </item>
+        <item>KOTTINGER &amp; ADAMS</item>
+        <item>KOTTINGER &amp; AMARAL</item>
+        <item>KOTTINGER &amp; BERNAL</item>
+        <item>KOTTINGER &amp; SALVADOR</item>
+        <item>KOTTINGER &amp; SECOND</item>
+        <item>KOTTINGER &amp; SHARAB</item>
+        <item>LAS POSITAS &amp; SANTA RITA</item>
+        <item>MAIN &amp; VERVAIS</item>
+        <item>NEAL &amp; FIRST EB * </item>
+        <item>OLD BERNAL &amp; CITY HALL</item>
+        <item>OWENS &amp; ANDREWS</item>
+        <item>OWENS &amp; CHABOT</item>
+        <item>OWENS &amp; HACIENDA</item>
+        <item>OWENS &amp; ROSEWOOD</item>
+        <item>PETERS &amp; ST MARYS</item>
+        <item>SANTA RITA &amp; AMADOR HIGH NB</item>
+        <item>SANTA RITA &amp; BLACK</item>
+        <item>SANTA RITA &amp; FRANCISCO</item>
+        <item>SANTA RITA &amp; MOHR</item>
+        <item>SANTA RITA &amp; STONERIDGE</item>
+        <item>SANTA RITA &amp; SUTTER GATE</item>
+        <item>SANTA RITA &amp; VALLEY * </item>
+        <item>SUNOL BLVD &amp; MISSION PKWY</item>
+        <item>VALLEY &amp; HANSEN</item>
+        <item>VALLEY &amp; KOLL CENTER</item>
+        <item>VALLEY &amp; N PASEO SANTA CRUZ</item>
+        <item>VALLEY &amp; VIA DE LOS CERROS</item>
+        <item>VINEYARD &amp; MAVIS</item>
+        <item>VINEYARD &amp; REGALIA</item>
+    </string-array>
+    <string-array name="bus_stop_8b">
+        <item>4837   HOPYARD RD</item>
+        <item>5220 CASE AVE * </item>
+        <item>6269   VALLEY AV</item>
+        <item>6917   VALLEY AV</item>
+        <item>7052   VALLEY AV</item>
+        <item>BART PLEASANTON ARRIVAL NORTHBOUND * </item>
+        <item>BART PLEASANTON DEPART SOUTHBOUND * </item>
+        <item>BERNAL &amp; PALOMINO * </item>
+        <item>CASE &amp; BERNAL</item>
+        <item>FIRST &amp; KOTTINGER NB</item>
+        <item>FIRST ST &amp; NEAL ST EB</item>
+        <item>HOPYARD &amp; GIBRALTAR</item>
+        <item>HOPYARD &amp; LAS POSITAS NB * </item>
+        <item>HOPYARD &amp; PARKSIDE</item>
+        <item>HOPYARD &amp; STONERIDGE</item>
+        <item>KOTTINGER &amp; ADAMS</item>
+        <item>KOTTINGER &amp; AMARAL</item>
+        <item>KOTTINGER &amp; BERNAL</item>
+        <item>KOTTINGER &amp; SALVADOR</item>
+        <item>KOTTINGER &amp; SECOND</item>
+        <item>KOTTINGER &amp; SHARAB</item>
+        <item>LAS POSITAS &amp; SANTA RITA</item>
+        <item>NEAL &amp; FIRST EB * </item>
+        <item>OLD BERNAL &amp; CITY HALL</item>
+        <item>OWENS DR &amp; CHABOT DR</item>
+        <item>OWENS DR &amp; HACIENDA DR</item>
+        <item>OWENS DR &amp; LAS POSITAS</item>
+        <item>OWENS DR &amp; ROSEWOOD</item>
+        <item>OWENS DR &amp; WILLOW RD</item>
+        <item>PETERS &amp; DIVISION</item>
+        <item>SANTA RITA &amp; AMADOR HIGH SB</item>
+        <item>SANTA RITA &amp; DEL VALLE</item>
+        <item>SANTA RITA &amp; MOHR</item>
+        <item>SANTA RITA &amp; NEVIS</item>
+        <item>SANTA RITA &amp; STONERIDGE</item>
+        <item>SANTA RITA &amp; VALLEY * </item>
+        <item>SANTA RITA RD &amp; VALLEY</item>
+        <item>SUNOL BLVD &amp; MISSION PKWY</item>
+        <item>VALLEY &amp; HANSEN</item>
+        <item>VALLEY &amp; VIA DE LOS MILAGROS NB</item>
+        <item>VALLEY &amp; WILD ROSE NB * </item>
+        <item>VINEYARD &amp; MAVIS</item>
+        <item>VINEYARD &amp; REGALIA</item>
+    </string-array>
+    <string-array name="bus_stop_1c">
+        <item>BART DUBLIN ARRIVAL NORTHBOUND *</item>
+        <item>BART DUBLIN DEPART EASTBOUND * </item>
+        <item>BRODER BLVD &amp; SANTA RITA JAIL * </item>
+        <item>DUBLIN BLVD &amp; J.MONEGO-TASSAJARA * </item>
+        <item>DUBLIN BLVD &amp; MYRTLE DR</item>
+        <item>EB DUBLIN BLVD &amp; HIBERNIA DR EB</item>
+        <item>GLEASON DR &amp; ARNOLD RD</item>
+        <item>GLEASON DR &amp; HACIENDA DR</item>
+        <item>HACIENDA DR &amp; CENTRAL PKWY</item>
+        <item>HACIENDA DR &amp; GLEASON DR</item>
+        <item>HACIENDA DR &amp; HAVEN PLACE</item>
+        <item>HACIENDA DR &amp; SUMMERGLEN</item>
+        <item>MADIGAN AV &amp; BRODER BV</item>
+        <item>OWENS &amp; HACIENDA</item>
+        <item>OWENS &amp; ROSEWOOD</item>
+        <item>ROSE PAVILION INBOUND * </item>
+        <item>ROSEWOOD DR &amp; OLD SANTA RITA</item>
+        <item>ROSEWOOD DR &amp; WAL MART DR</item>
+    </string-array>
+
+</resources>
