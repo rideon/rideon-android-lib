@@ -1,6 +1,6 @@
 - local.properties and ant.properties need to be created manually on local system.
-- The above 2 properties files need to be created in ../properties folder.
-- If you decide to choose another folder, build.xml need to be updated accordingly.
+- The above 2 properties files need to be created in ../properties folder. If someone decides to choose another folder for properties file, build.xml needs to be updated accordingly.
+- This project depends on android-sdk-macosx/extras/android/support/v7/appcompat and android-sdk-macosx/extras/google/google_play_services/libproject/google-play-services_lib library projects.
 
 local.properties
 ```sh
@@ -32,8 +32,8 @@ key.alias.password=EDIT_THIS_VALUE
 
 project.properties in the project needs be added, here is the template.
 ```sh
-target=android-17
-android.library.reference.1=PATH_TO_android-sdk-macosx/extras/google/google_play_services/libproject/google-play-services_lib
-android.library.reference.2=PATH_TO_android-sdk-macosx/extras/android/support/v7/appcompat
+target=android-19
 android.library=true
+android.library.reference.1=PATH_TO_android-sdk-macosx/extras/android/support/v7/appcompat
+android.library.reference.2=PATH_TO_android-sdk-macosx/extras/google/google_play_services/libproject/google-play-services_lib
 ```
