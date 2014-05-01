@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="13"
         android:targetSdkVersion="17" />
 
     <application
@@ -18,43 +18,43 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.tapum.rideon.BartActivity"
+            android:name="com.tapum.rideon.activity.realtime.BartActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.tapum.rideon.CaltrainActivity"
+            android:name="com.tapum.rideon.activity.realtime.CaltrainActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.tapum.rideon.MuniActivity"
+            android:name="com.tapum.rideon.activity.realtime.MuniActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.tapum.rideon.GtfsRouteActivity"
+            android:name="com.tapum.rideon.activity.gtfs.GtfsRouteActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.tapum.rideon.GtfsStationActivity"
+            android:name="com.tapum.rideon.activity.gtfs.GtfsStationActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.tapum.rideon.AcTransitActivity"
+            android:name="com.tapum.rideon.activity.realtime.AcTransitActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.tapum.rideon.DumbartonExpressActivity"
+            android:name="com.tapum.rideon.activity.realtime.DumbartonExpressActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.tapum.rideon.SamTransActivity"
+            android:name="com.tapum.rideon.activity.realtime.SamTransActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.tapum.rideon.VtaActivity"
+            android:name="com.tapum.rideon.activity.realtime.VtaActivityrideon.VtaActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.tapum.rideon.WestcatActivity"
+            android:name="com.tapum.rideon.activity.realtime.WestcatActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
@@ -67,10 +67,6 @@
         </activity>
         <activity
             android:name="com.tapum.rideon.RouteActivity"
-            android:label="@string/app_name" >
-        </activity>
-        <activity
-            android:name="com.tapum.rideon.carpool.CaltrainDirectionActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
