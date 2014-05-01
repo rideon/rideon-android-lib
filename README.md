@@ -1,5 +1,5 @@
-- local.properties, ant.properties and build.properties need to be created manually on local system.
-- The above 3 properties files need to be created in ../properties folder.
+- local.properties and ant.properties need to be created manually on local system.
+- The above 2 properties files need to be created in ../properties folder.
 - If you decide to choose another folder, build.xml need to be updated accordingly.
 
 local.properties
@@ -30,9 +30,10 @@ key.alias.password=EDIT_THIS_VALUE
 ```
 
 
-rideon-android-lib.properties
+project.properties in the project needs be added, here is the template.
 ```sh
 target=android-17
 android.library.reference.1=PATH_TO_android-sdk-macosx/extras/google/google_play_services/libproject/google-play-services_lib
 android.library.reference.2=PATH_TO_android-sdk-macosx/extras/android/support/v7/appcompat
+android.library=true
 ```

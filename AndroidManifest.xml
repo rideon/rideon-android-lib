@@ -38,10 +38,6 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.tapum.rideon.carpool.RegistrationActivity"
-            android:label="@string/app_name" >
-        </activity>
-        <activity
             android:name="com.tapum.rideon.AcTransitActivity"
             android:label="@string/app_name" >
         </activity>
@@ -82,15 +78,6 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.tapum.rideon.CommuteBuddyMainActivity"
-            android:logo="@drawable/tram_train_subway" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity

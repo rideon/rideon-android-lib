@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="CommuteBuddyMainActivity" default="help">
+<project name="rideon-android-sf-lib" default="help">
 
     <!-- The local.properties file is created and updated by the 'android' tool.
          It contains the path to the SDK. It should *NOT* be checked into
@@ -46,7 +46,7 @@
 
          This file is an integral part of the build system for your
          application and should be checked into Version Control Systems. -->
-    <loadproperties srcFile="../properties/rideon-android-lib.properties" />
+    <loadproperties srcFile="project.properties" />
 
     <!-- quick check on sdk.dir -->
     <fail

@@ -1,0 +1,8 @@
+*.properties
+*.log
+*.txt
+bin
+*.sh
+assets
+src
+res
