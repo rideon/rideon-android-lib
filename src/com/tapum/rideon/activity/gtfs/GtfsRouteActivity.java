@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import com.tapum.api.rideon.model.Agency;
 import com.tapum.rideon.broker.RouteInfoBroker;
 import com.tapum.rideon.broker.RouteModel;
+import com.tapum.rideon.util.AppProperties;
 
 /**
  * 
@@ -33,6 +34,7 @@ public class GtfsRouteActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		try {
+			AppProperties.init(this);
 			ApplicationInfo ai = getPackageManager().getApplicationInfo(
 					this.getPackageName(), PackageManager.GET_META_DATA);
 			Bundle bundle = ai.metaData;
