@@ -1,3 +1,5 @@
+This project can't be built unelss com.tapum.rideon.broker and com.tapum.rideon.wheels packages are checked in.
+
 - local.properties and ant.properties need to be created manually on local system.
 - The above 2 properties files need to be created in ../properties folder. If someone decides to choose another folder for properties file, build.xml needs to be updated accordingly.
 - This project depends on android-sdk-macosx/extras/android/support/v7/appcompat and android-sdk-macosx/extras/google/google_play_services/libproject/google-play-services_lib library projects.

@@ -11,6 +11,30 @@ public class AppConstants {
 			"rideon_apiurl");
 	public static String apikey = AppProperties.get().getProperty(
 			"rideon_apikey");
+	public static String WHEELS_URL = AppProperties.get().getProperty(
+			"rideon_wheels_url");
+
+	public static String VIEWSTATE_17 = AppProperties.get().getProperty(
+			"VIEWSTATE_17");
+	public static String VIEWSTATE_15 = AppProperties.get().getProperty(
+			"VIEWSTATE_15");
+	public static String VIEWSTATE_136 = AppProperties.get().getProperty(
+			"VIEWSTATE_136");
+	public static String VIEWSTATE_137 = AppProperties.get().getProperty(
+			"VIEWSTATE_137");
+	public static String VIEWSTATE_109 = AppProperties.get().getProperty(
+			"VIEWSTATE_109");
+
+	public static String EVENTVALIDATION_17 = AppProperties.get().getProperty(
+			"EVENTVALIDATION_17");
+	public static String EVENTVALIDATION_15 = AppProperties.get().getProperty(
+			"EVENTVALIDATION_15");
+	public static String EVENTVALIDATION_136 = AppProperties.get().getProperty(
+			"EVENTVALIDATION_136");
+	public static String EVENTVALIDATION_137 = AppProperties.get().getProperty(
+			"EVENTVALIDATION_137");
+	public static String EVENTVALIDATION_109 = AppProperties.get().getProperty(
+			"EVENTVALIDATION_109");
 
 	public static String STATION_INFO_URL = baseApiUrl + "api/station/";
 	public static String GTFS_STATION_INFO_URL = baseApiUrl
