@@ -1320,12 +1320,11 @@ containing a value of this type.
         public static int action_menu_presenter=0x7f06001a;
         public static int action_mode_close_button=0x7f060027;
         public static int action_settings=0x7f060081;
-        public static int activity_bart_layout=0x7f06003f;
+        public static int activity_arrival_layout=0x7f06003f;
         public static int activity_chooser_view_content=0x7f060028;
         public static int activity_route_layout=0x7f060052;
         public static int always=0x7f06000f;
         public static int arrival_info_page_header=0x7f060041;
-        public static int bart_station_list_layout=0x7f060045;
         public static int beginning=0x7f060014;
         public static int bus_stop_10e=0x7f06005d;
         public static int bus_stop_10w=0x7f06005b;
@@ -1423,6 +1422,7 @@ containing a value of this type.
         public static int showHome=0x7f060008;
         public static int showTitle=0x7f06000a;
         public static int split_action_bar=0x7f060021;
+        public static int station_list_layout=0x7f060045;
         public static int status_layout=0x7f06005f;
         public static int submit_area=0x7f06003c;
         public static int tabMode=0x7f060006;
@@ -1487,7 +1487,7 @@ containing a value of this type.
         public static int abc_search_dropdown_item_icons_2line=0x7f030015;
         public static int abc_search_view=0x7f030016;
         public static int abc_simple_decor=0x7f030017;
-        public static int activity_bart=0x7f030018;
+        public static int activity_arrival=0x7f030018;
         public static int activity_enrollment=0x7f030019;
         public static int activity_route=0x7f03001a;
         public static int activity_wheels=0x7f03001b;

@@ -1,6 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_bart_layout"
+    android:id="@+id/activity_arrival_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="0dp"
@@ -78,7 +78,7 @@
         android:layout_weight=".45" >
 
         <RelativeLayout
-            android:id="@+id/bart_station_list_layout"
+            android:id="@+id/station_list_layout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
@@ -88,76 +88,5 @@
             android:scrollbars="vertical|horizontal" >
         </RelativeLayout>
     </ScrollView>
-
-    <!--
-         <ScrollView
-        android:id="@+id/ScrollView04"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="5dp"
-        android:layout_weight=".82"
-        android:paddingBottom="0dp"
-        android:paddingLeft="0dp"
-        android:paddingRight="0dp"
-        android:paddingTop="0dp" >
-
-        <RelativeLayout
-            android:id="@+id/search_thing"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginTop="0dp"
-            android:orientation="vertical" >
-
-            <Button
-                android:id="@+id/main_refresh_icon"
-                android:layout_width="64px"
-                android:layout_height="64px"
-                android:layout_alignParentRight="true"
-                android:layout_marginBottom="1dp"
-                android:background="@drawable/refresh"
-                android:gravity="center_vertical|right" />
-    -->
-
-
-    <!--
-                 <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="vertical" >
-    -->
-    <!--
-                     <SearchView
-                    android:id="@+id/search_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_toLeftOf="@+id/main_refresh_icon"
-                    android:iconifiedByDefault="false"
-                    android:onClick="onQueryTextChange" />
-    -->
-    <!--
-     <EditText android:id="@+id/inputSearch"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="Search products.."
-        
-        android:inputType="textVisiblePassword"/>
-
-                <ListView
-                    android:id="@+id/list_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent" >
-                </ListView>
-            </LinearLayout>
-    -->
-    <!--
-    </RelativeLayout>
-    </ScrollView>
-    -->
 
 </LinearLayout>

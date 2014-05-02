@@ -984,7 +984,7 @@
 /Users/neejain/my/github/rideon-android-lib/res/drawable-mdpi/ic_launcher.png \
 /Users/neejain/my/github/rideon-android-lib/res/drawable-xhdpi/ic_launcher.png \
 /Users/neejain/my/github/rideon-android-lib/res/drawable-xxhdpi/ic_launcher.png \
-/Users/neejain/my/github/rideon-android-lib/res/layout/activity_bart.xml \
+/Users/neejain/my/github/rideon-android-lib/res/layout/activity_arrival.xml \
 /Users/neejain/my/github/rideon-android-lib/res/layout/activity_enrollment.xml \
 /Users/neejain/my/github/rideon-android-lib/res/layout/activity_route.xml \
 /Users/neejain/my/github/rideon-android-lib/res/layout/activity_wheels.xml \
