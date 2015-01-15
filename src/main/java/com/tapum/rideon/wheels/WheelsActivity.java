@@ -1,7 +1,14 @@
 package com.tapum.rideon.wheels;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import com.tapum.api.rideon.model.Agency;
+import com.tapum.rideon.broker.RouteInfoBroker;
+import com.tapum.rideon.broker.RouteModel;
+import com.tapum.rideon.broker.StationInfoBroker;
 import com.tapum.rideon.lib.R;
 import android.location.Location;
 import android.location.LocationListener;
@@ -25,7 +32,7 @@ import com.tapum.rideon.util.AppProperties;
 
 public class WheelsActivity extends AbstractEasyCommuteActivity {
 
-	private static HashMap<String, String> stopMap = new HashMap<String, String>();
+	private static HashMap<String, String> stopMap10E = new HashMap<String, String>();
 	private static HashMap<String, String> stopMap10W = new HashMap<String, String>();
 	private static HashMap<String, String> stopMap8A = new HashMap<String, String>();
 	private static HashMap<String, String> stopMap8B = new HashMap<String, String>();
@@ -39,78 +46,75 @@ public class WheelsActivity extends AbstractEasyCommuteActivity {
 
 	static {
 		int i = 0;
-		stopMap.put("" + i++, "533");
-		stopMap.put("" + i++, "805");
-		stopMap.put("" + i++, "1178");
-		stopMap.put("" + i++, "1173");
-		stopMap.put("" + i++, "522");
-		stopMap.put("" + i++, "523");
-		stopMap.put("" + i++, "520");
-		stopMap.put("" + i++, "519");
-
-		stopMap.put("" + i++, "1192");
-		stopMap.put("" + i++, "521");
-		stopMap.put("" + i++, "1239");
-		stopMap.put("" + i++, "399");
-		stopMap.put("" + i++, "403");
-		stopMap.put("" + i++, "406");
-		stopMap.put("" + i++, "400");
-		stopMap.put("" + i++, "401");
-		stopMap.put("" + i++, "405");
-		stopMap.put("" + i++, "404");
-		stopMap.put("" + i++, "447");
-		stopMap.put("" + i++, "402");
-		stopMap.put("" + i++, "594");
-		stopMap.put("" + i++, "534");
-		stopMap.put("" + i++, "584");
-		stopMap.put("" + i++, "1082");
-		stopMap.put("" + i++, "593");
-		stopMap.put("" + i++, "581");
-		stopMap.put("" + i++, "583");
-		stopMap.put("" + i++, "582");
-		stopMap.put("" + i++, "592");
-		stopMap.put("" + i++, "1241");
-		stopMap.put("" + i++, "1238");
-		stopMap.put("" + i++, "77");
-		stopMap.put("" + i++, "76");
-		stopMap.put("" + i++, "590");
-		stopMap.put("" + i++, "591");
-		stopMap.put("" + i++, "586");
-		stopMap.put("" + i++, "589");
-		stopMap.put("" + i++, "585");
-		stopMap.put("" + i++, "587");
-		stopMap.put("" + i++, "588");
-		stopMap.put("" + i++, "596");
-		stopMap.put("" + i++, "595");
-		stopMap.put("" + i++, "355");
-		stopMap.put("" + i++, "354");
-		stopMap.put("" + i++, "74");
-		stopMap.put("" + i++, "597");
-		stopMap.put("" + i++, "75");
-		stopMap.put("" + i++, "1243");
-		stopMap.put("" + i++, "532");
-		stopMap.put("" + i++, "1175");
-		stopMap.put("" + i++, "1176");
+		stopMap10E.put("" + i++, "533");
+		stopMap10E.put("" + i++, "520");
+		stopMap10E.put("" + i++, "522");
+		stopMap10E.put("" + i++, "523");
+		stopMap10E.put("" + i++, "519");
+		stopMap10E.put("" + i++, "1192");
+		stopMap10E.put("" + i++, "521");
+		stopMap10E.put("" + i++, "401");
+		stopMap10E.put("" + i++, "447");
+		stopMap10E.put("" + i++, "1239");
+		stopMap10E.put("" + i++, "399");
+		stopMap10E.put("" + i++, "403");
+		stopMap10E.put("" + i++, "406");
+		stopMap10E.put("" + i++, "400");
+		stopMap10E.put("" + i++, "405");
+		stopMap10E.put("" + i++, "404");
+		stopMap10E.put("" + i++, "402");
+		stopMap10E.put("" + i++, "1173");
+		stopMap10E.put("" + i++, "1174");
+		stopMap10E.put("" + i++, "594");
+		stopMap10E.put("" + i++, "534");
+		stopMap10E.put("" + i++, "584");
+		stopMap10E.put("" + i++, "1082");
+		stopMap10E.put("" + i++, "593");
+		stopMap10E.put("" + i++, "581");
+		stopMap10E.put("" + i++, "583");
+		stopMap10E.put("" + i++, "582");
+		stopMap10E.put("" + i++, "592");
+		stopMap10E.put("" + i++, "1241");
+		stopMap10E.put("" + i++, "1238");
+		stopMap10E.put("" + i++, "77");
+		stopMap10E.put("" + i++, "76");
+		stopMap10E.put("" + i++, "590");
+		stopMap10E.put("" + i++, "591");
+		stopMap10E.put("" + i++, "586");
+		stopMap10E.put("" + i++, "589");
+		stopMap10E.put("" + i++, "585");
+		stopMap10E.put("" + i++, "587");
+		stopMap10E.put("" + i++, "588");
+		stopMap10E.put("" + i++, "596");
+		stopMap10E.put("" + i++, "595");
+		stopMap10E.put("" + i++, "355");
+		stopMap10E.put("" + i++, "354");
+		stopMap10E.put("" + i++, "74");
+		stopMap10E.put("" + i++, "597");
+		stopMap10E.put("" + i++, "75");
+		stopMap10E.put("" + i++, "1243");
+		stopMap10E.put("" + i++, "532");
+		stopMap10E.put("" + i++, "1175");
 
 		i = 0;
 		stopMap10W.put("" + i++, "600");
 		stopMap10W.put("" + i++, "537");
-		stopMap10W.put("" + i++, "1179");
-		stopMap10W.put("" + i++, "1174");
+		stopMap10W.put("" + i++, "526");
 		stopMap10W.put("" + i++, "1083");
 		stopMap10W.put("" + i++, "524");
-		stopMap10W.put("" + i++, "526");
 		stopMap10W.put("" + i++, "525");
 		stopMap10W.put("" + i++, "527");
+		stopMap10W.put("" + i++, "414");
+		stopMap10W.put("" + i++, "447");
 		stopMap10W.put("" + i++, "412");
 		stopMap10W.put("" + i++, "410");
 		stopMap10W.put("" + i++, "416");
 		stopMap10W.put("" + i++, "415");
-		stopMap10W.put("" + i++, "414");
 		stopMap10W.put("" + i++, "411");
 		stopMap10W.put("" + i++, "413");
-		stopMap10W.put("" + i++, "447");
 		stopMap10W.put("" + i++, "409");
+		stopMap10W.put("" + i++, "1173");
+		stopMap10W.put("" + i++, "1174");
 		stopMap10W.put("" + i++, "536");
 		stopMap10W.put("" + i++, "611");
 		stopMap10W.put("" + i++, "344");
@@ -139,19 +143,24 @@ public class WheelsActivity extends AbstractEasyCommuteActivity {
 		stopMap10W.put("" + i++, "357");
 		stopMap10W.put("" + i++, "356");
 		stopMap10W.put("" + i++, "532");
-		stopMap10W.put("" + i++, "569");
 		stopMap10W.put("" + i++, "1175");
 		i = 0;
 		stopMap8A.put("" + i++, "617");
+		stopMap8A.put("" + i++, "632");
 		stopMap8A.put("" + i++, "616");
 		stopMap8A.put("" + i++, "615");
-		stopMap8A.put("" + i++, "624");
-		stopMap8A.put("" + i++, "702");
-		stopMap8A.put("" + i++, "1173");
+		stopMap8A.put("" + i++, "628");
+		stopMap8A.put("" + i++, "627");
+		stopMap8A.put("" + i++, "626");
 		stopMap8A.put("" + i++, "651");
 		stopMap8A.put("" + i++, "625");
+		stopMap8A.put("" + i++, "1173");
 		stopMap8A.put("" + i++, "594");
 		stopMap8A.put("" + i++, "1119");
+		stopMap8A.put("" + i++, "634");
+		stopMap8A.put("" + i++, "631");
+		stopMap8A.put("" + i++, "630");
+		stopMap8A.put("" + i++, "633");
 		stopMap8A.put("" + i++, "619");
 		stopMap8A.put("" + i++, "618");
 		stopMap8A.put("" + i++, "1058");
@@ -171,7 +180,10 @@ public class WheelsActivity extends AbstractEasyCommuteActivity {
 		stopMap8A.put("" + i++, "578");
 		stopMap8A.put("" + i++, "106");
 		stopMap8A.put("" + i++, "105");
+		stopMap8A.put("" + i++, "576");
+		stopMap8A.put("" + i++, "577");
 		stopMap8A.put("" + i++, "602");
+		stopMap8A.put("" + i++, "624");
 		stopMap8A.put("" + i++, "604");
 		stopMap8A.put("" + i++, "605");
 		stopMap8A.put("" + i++, "606");
@@ -180,25 +192,24 @@ public class WheelsActivity extends AbstractEasyCommuteActivity {
 		stopMap8A.put("" + i++, "609");
 		stopMap8A.put("" + i++, "607");
 		stopMap8A.put("" + i++, "623");
+		stopMap8A.put("" + i++, "629");
 		stopMap8A.put("" + i++, "643");
+		stopMap8A.put("" + i++, "644");
 		stopMap8A.put("" + i++, "644");
 		stopMap8A.put("" + i++, "641");
 		stopMap8A.put("" + i++, "642");
+		stopMap8A.put("" + i++, "1033");
 		stopMap8A.put("" + i++, "650");
 		stopMap8A.put("" + i++, "648");
 		i = 0;
 
 		stopMap8B.put("" + i++, "632");
-		stopMap8B.put("" + i++, "624");
 		stopMap8B.put("" + i++, "628");
 		stopMap8B.put("" + i++, "627");
 		stopMap8B.put("" + i++, "626");
-		stopMap8B.put("" + i++, "702");
-		stopMap8B.put("" + i++, "1173");
 		stopMap8B.put("" + i++, "651");
-		stopMap8B.put("" + i++, "625");
+		stopMap8B.put("" + i++, "1173");
 		stopMap8B.put("" + i++, "594");
-		stopMap8B.put("" + i++, "687");
 		stopMap8B.put("" + i++, "634");
 		stopMap8B.put("" + i++, "631");
 		stopMap8B.put("" + i++, "630");
@@ -211,7 +222,6 @@ public class WheelsActivity extends AbstractEasyCommuteActivity {
 		stopMap8B.put("" + i++, "654");
 		stopMap8B.put("" + i++, "584");
 		stopMap8B.put("" + i++, "593");
-		stopMap8B.put("" + i++, "1216");
 		stopMap8B.put("" + i++, "576");
 		stopMap8B.put("" + i++, "581");
 		stopMap8B.put("" + i++, "583");
@@ -224,7 +234,6 @@ public class WheelsActivity extends AbstractEasyCommuteActivity {
 		stopMap8B.put("" + i++, "589");
 		stopMap8B.put("" + i++, "585");
 		stopMap8B.put("" + i++, "587");
-		stopMap8B.put("" + i++, "588");
 		stopMap8B.put("" + i++, "623");
 		stopMap8B.put("" + i++, "629");
 		stopMap8B.put("" + i++, "1033");
@@ -232,11 +241,14 @@ public class WheelsActivity extends AbstractEasyCommuteActivity {
 		stopMap8B.put("" + i++, "650");
 		stopMap8B.put("" + i++, "648");
 		i = 0;
-		stopMap1C.put("" + i++, "1179");
-		stopMap1C.put("" + i++, "559");
 		stopMap1C.put("" + i++, "88");
-		stopMap1C.put("" + i++, "97");
+		stopMap1C.put("" + i++, "531");
+		stopMap1C.put("" + i++, "529");
+		stopMap1C.put("" + i++, "530");
 		stopMap1C.put("" + i++, "96");
+		stopMap1C.put("" + i++, "97");
+		stopMap1C.put("" + i++, "559");
+		stopMap1C.put("" + i++, "1179");
 		stopMap1C.put("" + i++, "95");
 		stopMap1C.put("" + i++, "89");
 		stopMap1C.put("" + i++, "90");
@@ -254,42 +266,55 @@ public class WheelsActivity extends AbstractEasyCommuteActivity {
 	}
 
 	WheelsBroker wheelsBroker = null;
+	public final static List<RouteModel> routeList = new ArrayList<RouteModel>();
+	public final static Map<String, RouteModel> codeStationInfoMap = new HashMap<String, RouteModel>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		AppProperties.init(this);
-		setContentView(R.layout.activity_wheels);
-		wheelsBroker = new WheelsBroker(this);
-		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-				.permitAll().build();
+		new RouteInfoBroker(this, routeList, codeStationInfoMap, Agency.WHEELS)
+				.execute();
 
-		StrictMode.setThreadPolicy(policy);
-		{
-			Spinner spinner = (Spinner) findViewById(R.id.bus_stop_spinner_1c);
-			setStatusSpinner(spinner, R.array.bus_stop_1c, "1", "109", "C",
-					stopMap1C);
-		}
-		{
-			Spinner spinner = (Spinner) findViewById(R.id.bus_stop_spinner_8a);
-			setStatusSpinner(spinner, R.array.bus_stop_8a, "8", "136", "A",
-					stopMap8A);
-		}
-		{
-			Spinner spinner = (Spinner) findViewById(R.id.bus_stop_spinner_8b);
-			setStatusSpinner(spinner, R.array.bus_stop_8b, "8", "137", "B",
-					stopMap8B);
-		}
-		{
-			Spinner spinner = (Spinner) findViewById(R.id.bus_stop_spinner_10w);
-			setStatusSpinner(spinner, R.array.bus_stop_10w, "10", "17", "W",
-					stopMap10W);
-		}
-		{
-			Spinner spinner = (Spinner) findViewById(R.id.bus_stop_spinner_10e);
-			setStatusSpinner(spinner, R.array.bus_stop_10e, "10", "15", "E",
-					stopMap);
-		}
+//		super.onCreate(savedInstanceState);
+//		setContentView(R.layout.activity_arrival);
+//		Agency agency = Agency.getByAgencyName("Wheels");
+//
+//		new StationInfoBroker(this, null, null, agency, null, null, null, null,
+//				null, null, null).execute();
+
+//		super.onCreate(savedInstanceState);
+//		AppProperties.init(this);
+//		setContentView(R.layout.activity_wheels);
+//		wheelsBroker = new WheelsBroker(this);
+//		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+//				.permitAll().build();
+//
+//		StrictMode.setThreadPolicy(policy);
+//		{
+//			Spinner spinner = (Spinner) findViewById(R.id.bus_stop_spinner_1c);
+//			setStatusSpinner(spinner, R.array.bus_stop_1c, "1", "10", "109",
+//					"C", stopMap1C);
+//		}
+//		{
+//			Spinner spinner = (Spinner) findViewById(R.id.bus_stop_spinner_8a);
+//			setStatusSpinner(spinner, R.array.bus_stop_8a, "8", "28", "136",
+//					"A", stopMap8A);
+//		}
+//		{
+//			Spinner spinner = (Spinner) findViewById(R.id.bus_stop_spinner_8b);
+//			setStatusSpinner(spinner, R.array.bus_stop_8b, "8", "28", "137",
+//					"B", stopMap8B);
+//		}
+//		{
+//			Spinner spinner = (Spinner) findViewById(R.id.bus_stop_spinner_10w);
+//			setStatusSpinner(spinner, R.array.bus_stop_10w, "10", "19", "17",
+//					"W", stopMap10W);
+//		}
+//		{
+//			Spinner spinner = (Spinner) findViewById(R.id.bus_stop_spinner_10e);
+//			setStatusSpinner(spinner, R.array.bus_stop_10e, "10", "19", "15",
+//					"E", stopMap10E);
+//		}
 
 	}
 
@@ -301,7 +326,8 @@ public class WheelsActivity extends AbstractEasyCommuteActivity {
 	}
 
 	private void setStatusSpinner(Spinner spinner, int data, String busNumber,
-			String direction, String directionText, HashMap<String, String> map) {
+			String routeId, String direction, String directionText,
+			HashMap<String, String> map) {
 		Log.i("setStatusSpinner", "startup=" + WheelsActivity.startUp);
 
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
@@ -309,7 +335,8 @@ public class WheelsActivity extends AbstractEasyCommuteActivity {
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter);
 		spinner.setOnItemSelectedListener(new Number10OnItemSelectedListener(
-				spinner, this, busNumber, direction, directionText, map));
+				spinner, this, busNumber, routeId, direction, directionText,
+				map));
 
 	}
 
@@ -330,16 +357,18 @@ class Number10OnItemSelectedListener implements OnItemSelectedListener {
 	WheelsActivity parentActivity;
 
 	private String busNumber;
+	private String routeId;
 	private String direction;
 	private String directionText;
 	private HashMap<String, String> map;
 	private Spinner spinner;
 
 	public Number10OnItemSelectedListener(Spinner spinner,
-			WheelsActivity activity, String busNumber, String direction,
-			String directionText, HashMap<String, String> map) {
+			WheelsActivity activity, String busNumber, String routeId,
+			String direction, String directionText, HashMap<String, String> map) {
 		this.parentActivity = activity;
 		this.busNumber = busNumber;
+		this.routeId = routeId;
 		this.direction = direction;
 		this.map = map;
 		this.directionText = directionText;
@@ -376,7 +405,7 @@ class Number10OnItemSelectedListener implements OnItemSelectedListener {
 
 			Log.d("Number10OnItemSelectedListener", "stopNumber=" + stopNumber);
 			WheelsBroker wheelsBroker = new WheelsBroker(parentActivity);
-			wheelsBroker.execute(busNumber, stopNumber, direction,
+			wheelsBroker.execute(busNumber, routeId, stopNumber, direction,
 					directionText, parent.getItemAtPosition(pos).toString());
 			// WheelsBroker.getSchedule(busNumber, stopNumber,
 			// direction);

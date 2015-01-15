@@ -1,8 +1,9 @@
 package com.tapum.rideon;
 
-import android.app.Activity;
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,7 +21,7 @@ import com.tapum.rideon.activity.realtime.WestcatActivity;
 import com.tapum.rideon.favorite.FavoriteBroker;
 import com.tapum.rideon.lib.R;
 import com.tapum.rideon.util.AppProperties;
-import com.tapum.rideon.wheels.WheelsActivity;
+import com.tapum.rideon.wheels.WheelsStandardActivity;
 
 /**
  * This the main activity class that shows up with the app is started.
@@ -29,7 +30,7 @@ import com.tapum.rideon.wheels.WheelsActivity;
  * 
  */
 
-public class CommuteBuddyMainActivity extends Activity {
+public class CommuteBuddyMainActivity extends ActionBarActivity {
 
 	@Override
 	protected void onResume() {
@@ -47,6 +48,12 @@ public class CommuteBuddyMainActivity extends Activity {
 		Log.d("onCreate", "onCreate");
 		super.onCreate(savedInstanceState);
 		AppProperties.init(this);
+		
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_SHOW_TITLE);
+		getSupportActionBar().setDisplayUseLogoEnabled(true);
+		getSupportActionBar().setLogo(R.drawable.tram_train_subway_36);
+		
 	}
 
 	/**
@@ -56,7 +63,7 @@ public class CommuteBuddyMainActivity extends Activity {
 	 */
 	public void wheels(View view) {
 		Intent intent = new Intent(getApplicationContext(),
-				WheelsActivity.class);
+				WheelsStandardActivity.class);
 		startActivity(intent);
 
 	}

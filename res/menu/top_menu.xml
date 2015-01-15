@@ -6,11 +6,11 @@
         android:id="@+id/menu_map"
         android:icon="@drawable/android_map_pin"
         android:title="@string/map_label"
-        yourapp:showAsAction="always"/>
+        yourapp:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_refresh"
         android:icon="@drawable/ic_menu_refresh"
         android:title="@string/refresh_label"
-        yourapp:showAsAction="always"/>
+        yourapp:showAsAction="ifRoom"/>
 
 </menu>

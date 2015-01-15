@@ -1,5 +1,5 @@
 package com.tapum.api.rideon.model;
 
 public enum ScheduleProvider {
-	MY_511, GTFS;
+	MY_511, GTFS, LAVTA;
 }

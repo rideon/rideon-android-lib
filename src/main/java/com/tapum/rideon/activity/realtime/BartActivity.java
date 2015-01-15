@@ -36,7 +36,7 @@ public class BartActivity extends AbstractAdvancedEasyCommuteActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_arrival);
 		Agency agency = Agency.getByAgencyName("BART");
-
+		
 		new StationInfoBroker(this, null, null, agency, null, null, null, null,
 				null, null, null).execute();
 	}

@@ -23,15 +23,23 @@ import java.util.regex.Pattern;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import android.app.ProgressDialog;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.ViewGroup;
@@ -39,6 +47,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.tapum.rideon.broker.RouteModel;
 import com.tapum.rideon.lib.R;
 
 /**
@@ -56,41 +65,13 @@ public class WheelsBroker extends AsyncTask<String, Void, String> {
 		this.activity = activity;
 	}
 
-	final static HashMap<String, String> routeState = new HashMap<String, String>();
-	final static HashMap<String, String> routeValidation = new HashMap<String, String>();
-
-	static {
-		// 10W
-		routeState.put("17", VIEWSTATE_17);
-		// 10E
-		routeState.put("15", VIEWSTATE_15);
-		// 8A
-		routeState.put("136", VIEWSTATE_136);
-		// 8B
-		routeState.put("137", VIEWSTATE_137);
-		// 1C
-		routeState.put("109", VIEWSTATE_109);
-	}
-	static {
-		// 10W
-		routeValidation.put("17", EVENTVALIDATION_17);
-		// 10E
-		routeValidation.put("15", EVENTVALIDATION_15);
-		// 8A
-		routeValidation.put("136", EVENTVALIDATION_136);
-		// 8B
-		routeValidation.put("137", EVENTVALIDATION_137);
-		// 1C
-		routeValidation.put("109", EVENTVALIDATION_109);
-
-	}
-
 	private String busNumber;
 	private String stopName;
 	private String directionText;
 
-	public String getSchedule(String busNumber, String busStopNumber,
-			String direction, String directionText, String stopName) {
+	public String getSchedule(String busNumber, String routeId,
+			String busStopNumber, String direction, String directionText,
+			String stopName) {
 
 		try {
 			this.busNumber = busNumber;
@@ -100,72 +81,185 @@ public class WheelsBroker extends AsyncTask<String, Void, String> {
 			HttpClient httpclient = new DefaultHttpClient();
 			HttpPost request = new HttpPost(WHEELS_URL);
 
-			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-			nameValuePairs.add(new BasicNameValuePair("ddlRoutes", busNumber));
-			nameValuePairs.add(new BasicNameValuePair("ddlDirections",
-					direction));
-			nameValuePairs
-					.add(new BasicNameValuePair("ddlStops", busStopNumber));
-			nameValuePairs.add(new BasicNameValuePair("btnCrossingTimes",
-					"Get Arrival Times"));
-			nameValuePairs.add(new BasicNameValuePair("__VIEWSTATE", routeState
-					.get(direction)));
-			nameValuePairs.add(new BasicNameValuePair("__EVENTVALIDATION",
-					routeValidation.get(direction)));
+			Log.i("WheelsBroker", WHEELS_URL);
+			String json = "{routeID: \"" + routeId + "\",	directionID: \""
+					+ direction + "\",	stopID: \"" + busStopNumber
+					+ "\", useArrivalTimes: \"true\"}";
+			Log.i("wheelsBroker", json);
+			StringEntity se = new StringEntity(json);
+			se.setContentType(new BasicHeader(HTTP.CONTENT_TYPE,
+					"application/json"));
+			request.setEntity(se);
 
-			request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-
-			// Execute HTTP Post Request
-			HttpResponse response = httpclient.execute(request);
-			// System.out.println(response.getEntity().getContent());
-			// Log.i("wheelsbroker", "content="
-			// + response.getEntity().getContent());
-
-			BufferedReader is = new BufferedReader(new InputStreamReader(
-					response.getEntity().getContent()));
-			String line = null;
-			StringBuffer sb = new StringBuffer();
-			while ((line = is.readLine()) != null) {
-				// Log.i("wheelsbroker", "line=" + line);
-				sb.append(line);
-			}
-			String content = sb.toString();
-
-			int startIndex = content
-					.indexOf("CrossingTimes\" align=\"center\">");
-			// System.out.println(startIndex);
-			if (startIndex == -1) {
-				startIndex = content.indexOf("No Schedule Found");
-				if (startIndex >= 0) {
-					return "No Schedule Found";
-				} else {
-					return "Internal Error";
-				}
-			} else {
-
-				String patternStr = "CrossingTimes\" align=\"center\">(\\d{1,2}:\\d{1,2}\\s[AP]M)<";
-				Pattern pattern = Pattern.compile(patternStr);
-				Matcher matcher = pattern
-						.matcher(content.substring(startIndex));
-				String time = "";
-				while (matcher.find()) {
-					if (!time.isEmpty())
-						time = time + ", ";
-					time = time + matcher.group(1);
-				}
-				return time;
-			}
-
+			ResponseHandler<String> handler = new BasicResponseHandler();
+			String result = httpclient.execute(request, handler);
+			return parseJson(result);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return "Try again";
 	}
 
+	/*
+	 * Following is a sample response showing NO arrival times.
+	 * {
+	 * "d": {
+	 * "errorMessage": null,
+	 * "showArrivals": true,
+	 * "showStopNumber": false,
+	 * "showScheduled": false,
+	 * "showDestination": false,
+	 * "updateTime": "11:54",
+	 * "updatePeriod": "am",
+	 * "routeStops": [
+	 * {
+	 * "routeID": 28,
+	 * "stops": [
+	 * {
+	 * "directionID": 136,
+	 * "stopID": 628,
+	 * "timePointID": 0,
+	 * "sameDestination": false,
+	 * "crossings": null
+	 * }
+	 * ]
+	 * }
+	 * ]
+	 * }
+	 * }
+	 * 
+	 * Following is a sample response showing arrival times.
+	 * {
+	 * "d": {
+	 * "errorMessage": null,
+	 * "showArrivals": true,
+	 * "showStopNumber": false,
+	 * "showScheduled": false,
+	 * "showDestination": false,
+	 * "updateTime": "12:26",
+	 * "updatePeriod": "pm",
+	 * "routeStops": [
+	 * {
+	 * "routeID": 10,
+	 * "stops": [
+	 * {
+	 * "directionID": 109,
+	 * "stopID": 90,
+	 * "timePointID": 0,
+	 * "sameDestination": false,
+	 * "crossings": [
+	 * {
+	 * "cancelled": false,
+	 * "schedTime": "12:39",
+	 * "schedPeriod": "pm",
+	 * "predTime": "12:39",
+	 * "predPeriod": "pm",
+	 * "countdown": null,
+	 * "destination": null
+	 * },
+	 * {
+	 * "cancelled": false,
+	 * "schedTime": "1:09",
+	 * "schedPeriod": "pm",
+	 * "predTime": "1:09",
+	 * "predPeriod": "pm",
+	 * "countdown": null,
+	 * "destination": null
+	 * },
+	 * {
+	 * "cancelled": false,
+	 * "schedTime": "1:39",
+	 * "schedPeriod": "pm",
+	 * "predTime": null,
+	 * "predPeriod": null,
+	 * "countdown": null,
+	 * "destination": null
+	 * }
+	 * ]
+	 * }
+	 * ]
+	 * }
+	 * ]
+	 * }
+	 * }
+	 */
+	private String parseJson(String json) {
+		String output = "Try again";
+		try {
+			if (json == null || json.isEmpty())
+				return "Internal Error";
+
+			JSONObject routeInfoJson = new JSONObject(json);
+			JSONObject d = routeInfoJson.getJSONObject("d");
+
+			String errorMessage = d.getString("errorMessage");
+			if (errorMessage != null && !errorMessage.equals("null")) {
+				Log.e("WheelsBroker", errorMessage.toString());
+				return errorMessage;
+			}
+			JSONArray routeStops = d.getJSONArray("routeStops");
+			if (routeStops.length() == 0) {
+				Log.e("WheelsBroker", "No routeStops found");
+				return "Internal Error";
+			}
+			for (int g = 0; g < routeStops.length(); g++) {
+				JSONArray stops = routeStops.getJSONObject(g).getJSONArray(
+						"stops");
+				if (stops.length() == 0) {
+					Log.e("WheelsBroker", "No stops found");
+					return "Internal Error";
+				}
+				for (int s = 0; s < stops.length(); s++) {
+					Object crossingObj = stops.getJSONObject(s)
+							.get("crossings");
+					if (crossingObj == null
+							|| crossingObj.toString().equals("null")) {
+						Log.e("WheelsBroker-crossings is null",
+								crossingObj.toString());
+						return "No upcoming stop times found";
+					} else {
+						Log.i("WheelsBroker-parsing crossing",
+								crossingObj.toString());
+						JSONArray crossings = stops.getJSONObject(s)
+								.getJSONArray("crossings");
+
+						output = "";
+						for (int c = 0; c < crossings.length(); c++) {
+							String time = "";
+							JSONObject crossing = crossings.getJSONObject(c);
+							String predTime = crossing.getString("predTime")
+									.toString();
+							if (!predTime.equals("null")) {
+								time = predTime
+										+ " "
+										+ crossing.getString("predPeriod")
+												.toString();
+							} else {
+								time = crossing.getString("schedTime")
+										.toString()
+										+ crossing.getString("schedPeriod")
+												.toString();
+
+							}
+							if (!output.isEmpty()) {
+								output = output + ", ";
+							}
+							output += time;
+						}
+						return output;
+					}
+				}
+			}
+		} catch (Exception ex) {
+			Log.e("RouteInfoBroker", ex.toString());
+		}
+		return output;
+	}
+
 	@Override
 	protected String doInBackground(String... params) {
 		return getSchedule(params[0], params[1], params[2], params[3],
-				params[4]);
+				params[4], params[5]);
 	}
 
 	@Override
